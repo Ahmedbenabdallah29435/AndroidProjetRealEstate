@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+<item android:id="@+id/homeP"
+    android:title="Home"
+    />
+    <item android:id="@+id/profileP"
+        android:title="Profile"
+        />
+    <item
+        android:id="@+id/meeting"
+        android:title="Meeting"
+        />
+    <item android:id="@+id/logOut"
+        android:title="Log Out"
+        />
+
+
+</menu>
