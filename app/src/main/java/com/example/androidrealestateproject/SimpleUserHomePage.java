@@ -10,6 +10,8 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.Button;
 
 import com.example.androidrealestateproject.dao.UserDAO;
 import com.example.androidrealestateproject.database.RightCleanerDataBase;
@@ -17,6 +19,9 @@ import com.example.androidrealestateproject.helper.SessionManagement;
 import com.example.androidrealestateproject.listServiceProviders.ServiceProviderAdapter;
 
 public class SimpleUserHomePage extends AppCompatActivity {
+    Button btn;
+
+    /**
     RightCleanerDataBase rightCleanerDataBase;
     UserDAO userDAO;
     SessionManagement sessionManagement;
@@ -63,7 +68,7 @@ public class SimpleUserHomePage extends AppCompatActivity {
         }
         return super.onOptionsItemSelected(item);
     }
-*/
+*//*
     @Override
     protected void onStart() {
         super.onStart();
@@ -79,7 +84,21 @@ public class SimpleUserHomePage extends AppCompatActivity {
         startActivity(new Intent(this,MainActivity.class));
 
     }
+*/
 
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_simple_user_home_page);  // You need to have the "activity_main.xml" layout file
+        btn=findViewById(R.id.house1);
+        btn.setOnClickListener(e -> {
+            Intent intent = new Intent (this,AddPlan.class);
+            startActivity(intent);
+        });
+    }
 
-
+    
 }
+
+
+

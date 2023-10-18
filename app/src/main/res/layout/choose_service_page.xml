@@ -7,6 +7,20 @@
     android:background="#FFFFFF"
     tools:context="com.example.androidrealestateproject.SimpleUserHomePage">
 
+    <Button
+        android:id="@+id/houseCleaningBtn"
+        android:layout_width="165dp"
+        android:layout_height="68dp"
+
+        android:layout_marginEnd="24dp"
+        android:layout_marginBottom="204dp"
+        android:background="@drawable/victore_button"
+        android:text="Blog"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.554"
+        app:layout_constraintStart_toStartOf="parent" />
+
     <include
         android:id="@+id/toolbar"
         layout="@layout/test"
@@ -21,7 +35,7 @@
         android:layout_marginEnd="24dp"
         android:layout_marginBottom="484dp"
         android:background="@drawable/victore_button"
-        android:text="House Cleaning"
+        android:text="House Building "
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.554"
@@ -35,7 +49,7 @@
         android:layout_marginEnd="24dp"
         android:layout_marginBottom="300dp"
         android:background="@drawable/victore_button"
-        android:text="Electrician"
+        android:text="Property"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="@+id/HouseCleaningBtn"
         app:layout_constraintHorizontal_bias="0.0"
@@ -52,7 +66,7 @@
         android:layout_marginEnd="24dp"
         android:layout_marginBottom="424dp"
         android:background="@drawable/victore_button"
-        android:text="Gardener"
+        android:text="Rental"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="@+id/HouseCleaningBtn"
         app:layout_constraintHorizontal_bias="0.0"

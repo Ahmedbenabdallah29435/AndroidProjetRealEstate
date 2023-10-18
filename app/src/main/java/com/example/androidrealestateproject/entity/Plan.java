@@ -1,12 +1,14 @@
 package com.example.androidrealestateproject.entity;
 
 import androidx.room.ColumnInfo;
+import androidx.room.Entity;
 import androidx.room.PrimaryKey;
 import androidx.room.Relation;
 
 import java.util.List;
 import java.util.Set;
 
+@Entity()
 public class Plan {
     @PrimaryKey(autoGenerate = true)
     private Integer planid;
@@ -17,7 +19,7 @@ public class Plan {
    @ColumnInfo(name = "picture")
     private String picture;
 
-    @ColumnInfo(name = "picture")
+    @ColumnInfo(name = "price")
     private Double price;
 
     @ColumnInfo(name = "realizationprice")
@@ -41,12 +43,13 @@ public class Plan {
     @ColumnInfo(name = "description")
     private String description;
 
-    @ColumnInfo(name = "user_id")
+ /**   @ColumnInfo(name = "user_id")
     private User user;
-
+*/
+ /**
     @Relation(parentColumn = "id", entityColumn = "contratplanid")
     public List<ContractPlan> contractPlans;
-
+*/
     public Integer getPlanid() {
         return planid;
     }
@@ -135,10 +138,10 @@ public class Plan {
     public void setDescription(String description) {
         this.description = description;
     }
-
+/**
     private Set<ContractPlan> planContractPlanContractPlans;
 
-
+*/
 
 
     public Plan(String title, Double price, Double realizationprice, Integer livingroom, Integer kitchen, Integer wc, Integer room1, Integer room2, String description) {

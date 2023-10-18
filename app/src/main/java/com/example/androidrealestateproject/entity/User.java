@@ -23,11 +23,13 @@ public class User {
     String phoneNumber;
     @ColumnInfo(name = "role")
     String role;
+    /**
     @Relation(parentColumn = "id", entityColumn = "user_id")
     public List<Plan> plans;
 
     @Relation(parentColumn = "id", entityColumn = "contratplanid")
     public List<ContractPlan> contractPlans;
+     */
 
     public Integer getId() {
         return id;
