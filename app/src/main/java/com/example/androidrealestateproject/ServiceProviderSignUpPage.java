@@ -17,7 +17,7 @@ import android.widget.Toast;
 
 import com.example.androidrealestateproject.dao.UserDAO;
 import com.example.androidrealestateproject.dao.UserServiceProviderDAO;
-import com.example.androidrealestateproject.database.RightCleanerDataBase;
+import com.example.androidrealestateproject.database.TechMasterDataBase;
 import com.example.androidrealestateproject.entity.UserServiceProvider;
 import com.example.androidrealestateproject.helper.Role;
 import com.example.androidrealestateproject.helper.ServiceCategory;
@@ -45,7 +45,7 @@ public class ServiceProviderSignUpPage extends AppCompatActivity {
             }
         });
         String[] arraySpinner = new String[] {
-                ServiceCategory.ELECTRICIAN.toString(), ServiceCategory.HOUSE_CLEANING.toString(), ServiceCategory.GARDENER.toString()
+                ServiceCategory.BLOGGER.toString(), ServiceCategory.RENTAL.toString(), ServiceCategory.CONSTRUCTOR.toString()
         };
         String[] arraySpinnerPrice = new String[] {
                 "10 - 20", "20 - 30", "30 - 40","Other"
@@ -64,9 +64,9 @@ public class ServiceProviderSignUpPage extends AppCompatActivity {
         signup.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                RightCleanerDataBase rightCleanerDataBase=RightCleanerDataBase.getRightCleanerDataBase(getApplicationContext());
-                final UserDAO  userDAO=rightCleanerDataBase.userDAO();
-                final UserServiceProviderDAO  userServiceProviderDAO=rightCleanerDataBase.userServiceProviderDAO();
+                TechMasterDataBase techMasterDataBase = TechMasterDataBase.getRightCleanerDataBase(getApplicationContext());
+                final UserDAO  userDAO= techMasterDataBase.userDAO();
+                final UserServiceProviderDAO  userServiceProviderDAO= techMasterDataBase.userServiceProviderDAO();
                 UserServiceProvider user = new UserServiceProvider();
 
                 user.setEmail(email.getText().toString());

@@ -9,9 +9,8 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.androidrealestateproject.R;
-import com.example.androidrealestateproject.database.RightCleanerDataBase;
+import com.example.androidrealestateproject.database.TechMasterDataBase;
 import com.example.androidrealestateproject.entity.Review;
-import com.example.androidrealestateproject.entity.UserServiceProvider;
 import com.example.androidrealestateproject.helper.SessionManagement;
 
 import java.util.List;
@@ -21,9 +20,9 @@ public class ServiceReviewAdapter extends RecyclerView.Adapter<ServiceReviewView
     SessionManagement sessionManagement;
 
     public ServiceReviewAdapter(Context context) {
-        RightCleanerDataBase rightCleanerDataBase = RightCleanerDataBase.getRightCleanerDataBase(context);
+        TechMasterDataBase techMasterDataBase = TechMasterDataBase.getRightCleanerDataBase(context);
         sessionManagement = new SessionManagement(context);
-        serviceReviewList = rightCleanerDataBase.reviewDAO().getReviewByEmailServiceUser(sessionManagement.getProfile().get("profile").toString());
+        serviceReviewList = techMasterDataBase.reviewDAO().getReviewByEmailServiceUser(sessionManagement.getProfile().get("profile").toString());
 
 
     }

@@ -44,7 +44,7 @@
                 android:value="" />
         </activity>
         <activity
-            android:name=".SimpleUserHomePage"
+            android:name=".SimpleUserHomePage2"
             android:exported="false"
             android:label="Home page"
             >
@@ -83,6 +83,10 @@
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
+        </activity>
+        <activity
+            android:name=".AddPost"
+            android:label="Nom de l'Activité (si désiré)">
         </activity>
     </application>
 

@@ -1,7 +1,6 @@
 package com.example.androidrealestateproject;
 
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
@@ -12,15 +11,9 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.androidrealestateproject.dao.ReviewDAO;
-import com.example.androidrealestateproject.dao.UserDAO;
-import com.example.androidrealestateproject.dao.UserServiceProviderDAO;
-import com.example.androidrealestateproject.database.RightCleanerDataBase;
+import com.example.androidrealestateproject.database.TechMasterDataBase;
 import com.example.androidrealestateproject.entity.Review;
-import com.example.androidrealestateproject.entity.User;
-import com.example.androidrealestateproject.entity.UserServiceProvider;
 import com.example.androidrealestateproject.helper.ReviewStatus;
-import com.example.androidrealestateproject.helper.Role;
-import com.example.androidrealestateproject.helper.ServiceCategory;
 
 public class ServiceReview extends AppCompatActivity {
 
@@ -44,8 +37,8 @@ public class ServiceReview extends AppCompatActivity {
         addReview.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                RightCleanerDataBase rightCleanerDataBase=RightCleanerDataBase.getRightCleanerDataBase(getApplicationContext());
-                final ReviewDAO reviewDAO=rightCleanerDataBase.reviewDAO();
+                TechMasterDataBase techMasterDataBase = TechMasterDataBase.getRightCleanerDataBase(getApplicationContext());
+                final ReviewDAO reviewDAO= techMasterDataBase.reviewDAO();
                 Review review = new Review();
 
                 review.setReview(reviewText.getText().toString());

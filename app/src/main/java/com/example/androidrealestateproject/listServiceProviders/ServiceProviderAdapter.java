@@ -1,7 +1,6 @@
 package com.example.androidrealestateproject.listServiceProviders;
 
 import android.content.Context;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -10,7 +9,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.androidrealestateproject.R;
-import com.example.androidrealestateproject.database.RightCleanerDataBase;
+import com.example.androidrealestateproject.database.TechMasterDataBase;
 import com.example.androidrealestateproject.entity.UserServiceProvider;
 import com.example.androidrealestateproject.helper.SessionManagement;
 
@@ -20,9 +19,9 @@ public class ServiceProviderAdapter extends RecyclerView.Adapter<ServiceProvider
     List<UserServiceProvider> serviceProviderList;
     SessionManagement sessionManagement;
     public ServiceProviderAdapter(Context context){
-        RightCleanerDataBase rightCleanerDataBase=RightCleanerDataBase.getRightCleanerDataBase(context);
+        TechMasterDataBase techMasterDataBase = TechMasterDataBase.getRightCleanerDataBase(context);
         sessionManagement=new SessionManagement(context);
-        serviceProviderList=rightCleanerDataBase.userServiceProviderDAO().getByService(sessionManagement.getServiceChoice().get("service_choice").toString());
+        serviceProviderList= techMasterDataBase.userServiceProviderDAO().getByService(sessionManagement.getServiceChoice().get("service_choice").toString());
 
 
     }

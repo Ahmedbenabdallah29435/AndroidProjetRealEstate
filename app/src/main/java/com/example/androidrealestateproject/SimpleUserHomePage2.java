@@ -1,23 +1,16 @@
 package com.example.androidrealestateproject;
 
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.Toolbar;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.Menu;
-import android.view.MenuItem;
+import android.widget.Button;
 
-import com.example.androidrealestateproject.dao.UserDAO;
-import com.example.androidrealestateproject.database.RightCleanerDataBase;
-import com.example.androidrealestateproject.helper.SessionManagement;
-import com.example.androidrealestateproject.listServiceProviders.ServiceProviderAdapter;
+public class SimpleUserHomePage2 extends AppCompatActivity {
+    Button btn;
 
-public class SimpleUserHomePage extends AppCompatActivity {
-    RightCleanerDataBase rightCleanerDataBase;
+    /**
+    TechMasterDataBase techMasterDataBase;
     UserDAO userDAO;
     SessionManagement sessionManagement;
     RecyclerView listproviders;
@@ -25,9 +18,9 @@ public class SimpleUserHomePage extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         sessionManagement=new SessionManagement(this);
-        rightCleanerDataBase= RightCleanerDataBase.getRightCleanerDataBase(getApplicationContext());
-        userDAO=rightCleanerDataBase.userDAO();
-        setContentView(R.layout.activity_simple_user_home_page);
+        techMasterDataBase= TechMasterDataBase.getRightCleanerDataBase(getApplicationContext());
+        userDAO=techMasterDataBase.userDAO();
+        setContentView(R.layout.activity_simple_user_home_page2);
         Toolbar toolbar=findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         listproviders=findViewById(R.id.listproviders);
@@ -63,7 +56,7 @@ public class SimpleUserHomePage extends AppCompatActivity {
         }
         return super.onOptionsItemSelected(item);
     }
-*/
+*//*
     @Override
     protected void onStart() {
         super.onStart();
@@ -79,7 +72,21 @@ public class SimpleUserHomePage extends AppCompatActivity {
         startActivity(new Intent(this,MainActivity.class));
 
     }
+*/
 
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_simple_user_home_page2);  // You need to have the "activity_main.xml" layout file
+        btn=findViewById(R.id.house1);
+        btn.setOnClickListener(e -> {
+            Intent intent = new Intent (this, AddPost.class);
+            startActivity(intent);
+        });
+    }
 
-
+    
 }
+
+
+
