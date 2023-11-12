@@ -10,7 +10,6 @@ public class Comment {
     private Integer commentId;
 
     @ColumnInfo(name = "commentDate")
-
     private LocalDate commentDate;
 
 

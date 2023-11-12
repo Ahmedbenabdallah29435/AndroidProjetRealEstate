@@ -3,8 +3,13 @@ package com.example.androidrealestateproject.entity;
 import androidx.room.ColumnInfo;
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
+import androidx.room.TypeConverters;
+
+import java.time.LocalDate;
+import java.util.Date;
 
 @Entity(tableName = "post")
+@TypeConverters({DateTypeConverter.class})
 public class Post {
     @PrimaryKey(autoGenerate = true)
     private Integer postid;
@@ -12,11 +17,11 @@ public class Post {
     @ColumnInfo(name = "title")
     private String title;
 
-   @ColumnInfo(name = "picture")
-    private String picture;
+    @ColumnInfo(name = "postDate")
+    private LocalDate postDate;
 
-
-
+    @ColumnInfo(name ="category")
+    private Category category;
     @ColumnInfo(name = "postContent")
     private String postContent;
 
@@ -36,12 +41,20 @@ public class Post {
         this.title = title;
     }
 
-    public String getPicture() {
-        return picture;
+    public LocalDate getPostDate() {
+        return postDate;
     }
 
-    public void setPicture(String picture) {
-        this.picture = picture;
+    public void setPostDate(LocalDate postDate) {
+       this.postDate = postDate;
+    }
+
+    public Category getCategory() {
+        return category;
+    }
+
+    public void setCategory(Category category) {
+        this.category = category;
     }
 
     public String getPostContent() {
@@ -52,10 +65,14 @@ public class Post {
         this.postContent = postContent;
     }
 
-    public Post(Integer postid, String title, String picture, String postContent) {
+    public Post(Integer postid, String title, LocalDate postDate, Category category, String postContent) {
         this.postid = postid;
         this.title = title;
-        this.picture = picture;
+        this.postDate = postDate;
+        this.category = category;
         this.postContent = postContent;
+    }
+
+    public Post() {
     }
 }

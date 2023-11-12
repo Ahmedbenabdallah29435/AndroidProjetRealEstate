@@ -96,14 +96,23 @@ public class MainActivity extends AppCompatActivity {
 
     }
     public void moveToHomePage(User user) {
-        if (user.getRole().equals(Role.SIMPLE_USER.toString())) {
-            Intent intent = new Intent(MainActivity.this, ServiceChoice.class);
-            startActivity(intent);
+        if (user != null) {
+            String role = user.getRole();
 
-        } else if (user.getRole().equals(Role.Service_Provider.toString())) {
-            Intent intent = new Intent(MainActivity.this, ServiceChoice.class);
+            if (Role.SIMPLE_USER.toString().equals(role)) {
+                Intent intent = new Intent(MainActivity.this, ServiceChoice.class);
+                startActivity(intent);
+            } else if (user.getRole().equals(Role.Service_Provider.toString())) {
+                Intent intent = new Intent(MainActivity.this, ServiceChoice.class);
+                startActivity(intent);
+            }
+        } else {
+            Intent intent = new Intent(MainActivity.this, SignUp.class);
             startActivity(intent);
         }
-
     }
+
+
+
+
 }
