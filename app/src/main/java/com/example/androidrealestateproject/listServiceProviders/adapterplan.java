@@ -14,10 +14,10 @@ import androidx.room.Room;
 
 import com.example.androidrealestateproject.R;
 import com.example.androidrealestateproject.UpdatePlan;
-import com.example.androidrealestateproject.dao.PostDao;
+import com.example.androidrealestateproject.dao.PlanDAO;
 import com.example.androidrealestateproject.database.TechMasterDataBase;
 import com.example.androidrealestateproject.entity.Plan;
-import com.example.androidrealestateproject.updatedata;
+
 
 import org.jetbrains.annotations.NotNull;
 
@@ -26,8 +26,8 @@ import java.util.List;
 public class adapterplan extends RecyclerView.Adapter<adapterplan.myviewholder>{
     List<Plan> plans;
 
-    public adapterplan(List<Plan> users) {
-        this.plans = users;
+    public adapterplan(List<Plan> plans) {
+        this.plans = plans;
     }
 
     @NonNull
@@ -53,9 +53,11 @@ public class adapterplan extends RecyclerView.Adapter<adapterplan.myviewholder>{
             public void onClick(View view) {
                 TechMasterDataBase db = Room.databaseBuilder(holder.recid.getContext(),
                         TechMasterDataBase.class, "TechMaster").allowMainThreadQueries().build();
-                PostDao userDao = db.postDAO();
+                PlanDAO planDAO = db.planDAO();
                 // this is to delete the record from room database
-                userDao.deleteById(plans.get(position).getPlanid());
+                planDAO.deleteById(plans.get(position).getPlanid());
+               int test = plans.get(position).getPlanid();
+                System.out.println(test);
                 // this is to delete the record from Array List which is the source of recview data
                 plans.remove(position);
 

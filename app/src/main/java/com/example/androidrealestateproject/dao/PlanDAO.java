@@ -20,8 +20,8 @@ public interface PlanDAO {
     void addPlan(Plan plan);
     @Update
     void updatePlan(Plan plan);
-    @Delete
-    void deleteUser(Plan plan);
+    @Query("DELETE FROM PLANS WHERE planid = :id")
+    void deleteById(int id);
     @Query("UPDATE PLANS SET title = :title, price=:price,livingroom = :livingroom, kitchen = :kitchen, wc = :wc, room1 = :room, picture = :image,description= :description WHERE planid = :id")
     void updateById(int id, String title, Double price, int livingroom,int kitchen,int wc,int room, String image,String description);
 

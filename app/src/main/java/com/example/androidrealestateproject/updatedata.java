@@ -37,8 +37,6 @@ public class updatedata extends AppCompatActivity
                 TechMasterDataBase db = Room.databaseBuilder(getApplicationContext(),
                         TechMasterDataBase.class, "TechMaster").allowMainThreadQueries().build();
                 PostDao postDao = db.postDAO();
-
-
                 postDao.updateById(id,name.getText().toString(),content.getText().toString());//
                 startActivity(new Intent(getApplicationContext(),fetchdata.class));
                 finish();
