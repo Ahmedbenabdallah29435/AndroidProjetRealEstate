@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools" >
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+
+    <application
+        android:allowBackup="true"
+        android:dataExtractionRules="@xml/data_extraction_rules"
+        android:fullBackupContent="@xml/backup_rules"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.AppCompat.Light.NoActionBar"
+        tools:targetApi="31" >
+        <activity
+            android:name=".ServiceProviderSignUpPage"
+            android:exported="false"
+            android:label="Service Provider SignUp page"
+            >
+
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".ServiceChoice"
+            android:exported="false"
+            android:label="Home Page"
+            >
+
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".ServiveProviderHomePage"
+            android:exported="false"
+            android:label="Service Choice"
+            >
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".SimpleUserHomePage2"
+            android:exported="false"
+            android:label="Home page"
+            >
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".test"
+            android:exported="false"
+            android:label="Home page"
+            >
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".updatedata"
+            android:exported="false"
+            android:label="Home page"
+            >
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".fetchdata"
+            android:exported="false"
+            android:label="Home page"
+            >
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+
+        <activity
+            android:name=".ProfilePage"
+            android:exported="false"
+            android:label="Profile"
+            >
+
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".SignUp"
+            android:exported="false" >
+
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".MainActivity"
+            android:exported="true"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar"
+            >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".AddPost"
+            android:label="Nom de l'Activité (si désiré)">
+        </activity>
+        <activity
+            android:name=".ListPlan"
+            android:label="Nom de l'Activité (si désiré)">
+        </activity>
+        <activity
+            android:name=".AddPlan"
+            android:label="Nom de l'Activité (si désiré)">
+        </activity>
+        <activity
+            android:name=".UpdatePlan"
+            android:label="Nom de l'Activité (si désiré)">
+        </activity>
+        <activity
+            android:name=".ListRental"
+            android:label="Nom de l'Activité (si désiré)">
+        </activity>
+        <activity
+            android:name=".AddRental"
+            android:label="Nom de l'Activité (si désiré)">
+        </activity>
+        <activity
+            android:name=".UpdateRental"
+            android:label="Nom de l'Activité (si désiré)">
+        </activity>
+    </application>
+
+</manifest>
