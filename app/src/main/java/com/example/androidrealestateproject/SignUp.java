@@ -12,7 +12,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.androidrealestateproject.dao.UserDAO;
-import com.example.androidrealestateproject.database.RightCleanerDataBase;
+import com.example.androidrealestateproject.database.TechMasterDataBase;
 import com.example.androidrealestateproject.entity.User;
 import com.example.androidrealestateproject.helper.Role;
 
@@ -42,9 +42,9 @@ public class SignUp extends AppCompatActivity {
             public void onClick(View view) {
 
                 User nUser=new User();
-                RightCleanerDataBase rightCleanerDataBase=RightCleanerDataBase.getRightCleanerDataBase(getApplicationContext());
+                TechMasterDataBase techMasterDataBase = TechMasterDataBase.getRightCleanerDataBase(getApplicationContext());
 
-                final UserDAO userDAO=rightCleanerDataBase.userDAO();
+                final UserDAO userDAO= techMasterDataBase.userDAO();
                 nUser.setUsername(username.getText().toString());
                     nUser.setEmail(email.getText().toString());
                     nUser.setPassword(pass.getText().toString());

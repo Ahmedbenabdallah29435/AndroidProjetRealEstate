@@ -3,6 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools" >
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.INTERNET" />
 
     <application
         android:allowBackup="true"
@@ -44,7 +45,7 @@
                 android:value="" />
         </activity>
         <activity
-            android:name=".SimpleUserHomePage"
+            android:name=".SimpleUserHomePage2"
             android:exported="false"
             android:label="Home page"
             >
@@ -52,6 +53,34 @@
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
+        <activity
+            android:name=".test"
+            android:exported="false"
+            android:label="Home page"
+            >
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".updatedata"
+            android:exported="false"
+            android:label="Home page"
+            >
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".fetchdata"
+            android:exported="false"
+            android:label="Home page"
+            >
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+
         <activity
             android:name=".ProfilePage"
             android:exported="false"
@@ -83,6 +112,22 @@
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
+        </activity>
+        <activity
+            android:name=".AddPost"
+            android:label="Nom de l'Activité (si désiré)">
+        </activity>
+        <activity
+            android:name=".ListPlan"
+            android:label="Nom de l'Activité (si désiré)">
+        </activity>
+        <activity
+            android:name=".AddPlan"
+            android:label="Nom de l'Activité (si désiré)">
+        </activity>
+        <activity
+            android:name=".UpdatePlan"
+            android:label="Nom de l'Activité (si désiré)">
         </activity>
     </application>
 

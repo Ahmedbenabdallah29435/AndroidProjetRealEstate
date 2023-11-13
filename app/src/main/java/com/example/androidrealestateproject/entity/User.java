@@ -4,6 +4,9 @@ import androidx.room.ColumnInfo;
 import androidx.room.Entity;
 import androidx.room.Index;
 import androidx.room.PrimaryKey;
+import androidx.room.Relation;
+
+import java.util.List;
 
 @Entity(tableName = "users",indices = {@Index(value = {"email"},unique = true)})
 public class User {
@@ -20,6 +23,13 @@ public class User {
     String phoneNumber;
     @ColumnInfo(name = "role")
     String role;
+    /**
+    @Relation(parentColumn = "id", entityColumn = "user_id")
+    public List<Post> plans;
+
+    @Relation(parentColumn = "id", entityColumn = "contratplanid")
+    public List<Comment> contractPlans;
+     */
 
     public Integer getId() {
         return id;
