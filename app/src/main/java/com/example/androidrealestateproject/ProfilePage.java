@@ -17,111 +17,84 @@ import com.example.androidrealestateproject.database.TechMasterDataBase;
 import com.example.androidrealestateproject.entity.User;
 import com.example.androidrealestateproject.helper.SessionManagement;
 import com.example.androidrealestateproject.listServiceProviders.ServiceReviewAdapter;
-
 public class ProfilePage extends AppCompatActivity {
-    TextView fname,email,birthdate,phone;
+    TextView fname, email, birthdate, phone;
     TechMasterDataBase techMasterDataBase;
     RecyclerView listReview;
     UserDAO userDAO;
     SessionManagement sessionManagement;
     Button addrev;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_profile_page);
+        Toolbar toolbar = findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
 
-        sessionManagement=new SessionManagement(getApplicationContext());
-        this.techMasterDataBase = TechMasterDataBase.getRightCleanerDataBase(getApplicationContext());
-        userDAO= this.techMasterDataBase.userDAO();
+        // Move the initialization of listReview here
+        listReview = findViewById(R.id.listReview);
 
-        listReview=findViewById(R.id.listReview);
+        techMasterDataBase = TechMasterDataBase.getRightCleanerDataBase(getApplicationContext());
+        userDAO = techMasterDataBase.userDAO();
+        sessionManagement = new SessionManagement(getApplicationContext());
+
         ServiceReviewAdapter adapter = new ServiceReviewAdapter(this);
         listReview.setAdapter(adapter);
-        listReview.setLayoutManager(new LinearLayoutManager(getApplicationContext(),LinearLayoutManager.VERTICAL,false));
+        listReview.setLayoutManager(new LinearLayoutManager(getApplicationContext(), LinearLayoutManager.VERTICAL, false));
 
-        setContentView(R.layout.activity_profile_page);
-        Toolbar toolbar=findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
-        TechMasterDataBase techMasterDataBase = TechMasterDataBase.getRightCleanerDataBase(getApplicationContext());
-        UserDAO userDAO= techMasterDataBase.userDAO();
         User user = (User) getIntent().getSerializableExtra("user");
-        fillProfile();
-        if(user!=null){
+        fillProfile(user);
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+
+        // Move the initialization of listReview here
+        listReview = findViewById(R.id.listReview);
+
+        if (!sessionManagement.isLoggedIn()) {
+            sendToLoginPage();
+        }
+
+        ServiceReviewAdapter adapter = new ServiceReviewAdapter(this);
+        listReview.setAdapter(adapter);
+        listReview.setLayoutManager(new LinearLayoutManager(getApplicationContext(), LinearLayoutManager.VERTICAL, false));
+
+        fillProfile(userDAO.getUserId(Integer.parseInt(sessionManagement.getUserDetails().get("id").toString())));
+    }
+
+    public void sendToLoginPage() {
+        startActivity(new Intent(this, MainActivity.class));
+        finish(); // Finish the current activity to prevent returning to it using the back button
+    }
+
+    public void fillProfile(User user) {
+        fname = findViewById(R.id.fname);
+        addrev = findViewById(R.id.addRev);
+        email = findViewById(R.id.emailT);
+        birthdate = findViewById(R.id.birthDate);
+        phone = findViewById(R.id.phone);
+
+        if (user != null) {
             fname.setText(user.getUsername());
             email.setText(user.getEmail());
-            birthdate.setText("test");
+            // Note: You have "birthdate.setText("test");", consider setting the actual birthdate value here.
             phone.setText(user.getPhoneNumber());
-
-        }else{
+        } else {
             fname.setText("NNan");
             email.setText("NNan");
             birthdate.setText("NNan");
             phone.setText("NNan");
         }
-    }
 
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.app_menu,menu);
-        return super.onCreateOptionsMenu(menu);
-    }
-/*
-    @Override
-    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
-        SessionManagement sessionManagement = new SessionManagement(getApplicationContext());
-        switch (item.getItemId()) {
-            case R.id.homeP: {
-                startActivity(new Intent(this,ServiceChoice.class));
-                break;
-            }
-            case R.id.profileP:{
-                startActivity(new Intent(this,ProfilePage.class));
-                break;
-            }
-            case  R.id.logOut:{
-                sessionManagement.logoutUser();
-                break;
-            }
-        }
-        return super.onOptionsItemSelected(item);
-    }
-*/
-    @Override
-    protected void onStart() {
-        super.onStart();
-
-        listReview=findViewById(R.id.listReview);
-        ServiceReviewAdapter adapter = new ServiceReviewAdapter(this);
-        listReview.setAdapter(adapter);
-        listReview.setLayoutManager(new LinearLayoutManager(getApplicationContext(),LinearLayoutManager.VERTICAL,false));
-        if (!sessionManagement.isLoggedIn()) {
-            sendToLoginPage();
-        }
-        fillProfile();
-    }
-    public void sendToLoginPage(){
-        startActivity(new Intent(this,MainActivity.class));
-
-    }
-    public void fillProfile(){
-        fname=findViewById(R.id.fname);
-        addrev=findViewById(R.id.addRev);
-        email=findViewById(R.id.emailT);
-        birthdate=findViewById(R.id.birthDate);
-        phone=findViewById(R.id.phone);
-        User user=userDAO.getUserId(Integer.parseInt(sessionManagement.getUserDetails().get("id").toString()));
-        fname.setText(user.getUsername());
-        email.setText(user.getEmail());
-        phone.setText(user.getPhoneNumber());
-        if(sessionManagement.getProfile().get("profile").toString().isEmpty()==false){
-            if(user.getEmail().equals(sessionManagement.getProfile().get("profile").toString())){
+        if (sessionManagement.getProfile().containsKey("profile") && !sessionManagement.getProfile().get("profile").toString().isEmpty()) {
+            if (user != null && user.getEmail().equals(sessionManagement.getProfile().get("profile").toString())) {
                 addrev.setVisibility(View.GONE);
             }
-        }else {
+        } else {
             addrev.setVisibility(View.GONE);
         }
-
-
-
-
     }
 }
