@@ -49,7 +49,7 @@ public class ServiceChoice extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 sessionManagement.setServiceChoiceSession(ServiceCategory.RENTAL.toString());
-                Intent intent = new Intent(ServiceChoice.this, ServiceChoice.class);
+                Intent intent = new Intent(ServiceChoice.this, ListRental.class);
                 startActivity(intent);
             }
         });
