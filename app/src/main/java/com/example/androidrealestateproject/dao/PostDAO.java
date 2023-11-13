@@ -8,6 +8,7 @@ import androidx.room.Update;
 
 
 import com.example.androidrealestateproject.entity.Post;
+import com.example.androidrealestateproject.entity.User;
 
 import java.util.List;
 
@@ -15,13 +16,17 @@ import java.util.List;
 public interface PostDAO {
     @Query("SELECT * FROM post")
     List<Post> getAll();
-//    @Query("SELECT * FROM post  WHERE postDate = 'WorldNews'")
-//    List<Post> getMeetByEmailServiceUser(String emailServiceUser);
-//    @Query("SELECT r.* FROM post as  r WHERE r.emailSimpleUser=:emailSimpleUser")
-//    List<Post> getMeetByEmailSimpleUser(String emailSimpleUser);
+    @Query("SELECT * FROM post  WHERE category = 'WorldNews'")
+    List<Post> getWorldNewsPost();
+    @Query("SELECT * FROM post  WHERE category = 'LocalNews'")
+    List<Post> getLocalNewsPost();
+    @Query("SELECT p.* FROM post as  p WHERE postId=:postId")
+    Post getPostId(int postId);
     @Insert
     void addPost(Post post);
     @Update
+    //@Query("UPDATE User SET first_name = :fname, last_name=:lname WHERE uid = :id")
+   // void updateById(int id, String fname, String lname);
     void updatePost(Post post);
     @Delete
     void deletePost(Post post);
