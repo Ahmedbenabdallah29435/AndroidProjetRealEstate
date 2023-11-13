@@ -1,0 +1,82 @@
+<!-- activity_add_property.xml -->
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp">
+
+    <EditText
+        android:id="@+id/editTextPropertyName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Property Name"
+        android:inputType="text" />
+
+    <EditText
+        android:id="@+id/editTextPrice"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/editTextPropertyName"
+        android:layout_marginTop="16dp"
+        android:hint="Price"
+        android:inputType="numberDecimal" />
+
+    <EditText
+        android:id="@+id/editTextAddress"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/editTextPrice"
+        android:layout_marginTop="16dp"
+        android:hint="Address"
+        android:inputType="text" />
+
+    <EditText
+        android:id="@+id/editTextNumberOfRooms"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/editTextAddress"
+        android:layout_marginTop="16dp"
+        android:hint="Number of Rooms"
+        android:inputType="number" />
+
+    <Spinner
+        android:id="@+id/spinnerPropertyType"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/editTextNumberOfRooms"
+        android:layout_marginTop="16dp"/>
+
+    <Button
+        android:id="@+id/buttonPickImage"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/spinnerPropertyType"
+        android:layout_marginTop="8dp"
+        android:text="Pick Image" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerViewSelectedImages"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/buttonPickImage"
+        android:layout_marginTop="16dp"
+        android:orientation="horizontal"
+        android:visibility="gone" />
+
+    <Button
+        android:id="@+id/buttonSave"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/recyclerViewSelectedImages"
+        android:layout_marginTop="24dp"
+        android:text="Save" />
+
+    <Button
+        android:id="@+id/buttonCancel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/buttonSave"
+        android:layout_marginTop="8dp"
+        android:text="Cancel" />
+
+</RelativeLayout>

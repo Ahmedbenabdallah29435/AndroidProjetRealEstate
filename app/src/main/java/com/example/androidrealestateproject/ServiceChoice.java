@@ -6,6 +6,10 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+
+
+import com.example.androidrealestateproject.PropertyActivites.PropertyListActivity;
+
 import com.example.androidrealestateproject.dao.ReviewDAO;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -18,7 +22,11 @@ import com.example.androidrealestateproject.helper.ServiceCategory;
 import com.example.androidrealestateproject.helper.SessionManagement;
 
 public class ServiceChoice extends AppCompatActivity {
+
+    Button btnHouseCleaning,btnGarden,btnElec,btnProperties;
+
     Button btnHouseCleaning,btnGarden,btnElec;
+
     RightCleanerDataBase rightCleanerDataBase;
     UserDAO userDAO;
     SessionManagement sessionManagement;
@@ -30,6 +38,9 @@ public class ServiceChoice extends AppCompatActivity {
         btnElec=findViewById(R.id.ElectricianBtn);
         btnHouseCleaning=findViewById(R.id.HouseCleaningBtn);
         btnGarden=findViewById(R.id.GardenerBtn);
+
+        btnProperties=findViewById(R.id.PropertiesBtn);
+
         Toolbar toolbar=findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         sessionManagement=new SessionManagement(getApplicationContext());
@@ -59,6 +70,16 @@ public class ServiceChoice extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
+        btnProperties.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                //sessionManagement.setServiceChoiceSession(ServiceCategory.GARDENER.toString());
+                Intent intent = new Intent(ServiceChoice.this, PropertyListActivity.class);
+                startActivity(intent);
+            }
+        });
+
     }
 
     @Override
