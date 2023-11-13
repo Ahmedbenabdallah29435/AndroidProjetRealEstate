@@ -9,7 +9,7 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.androidrealestateproject.dao.MeetDAO;
-import com.example.androidrealestateproject.database.RightCleanerDataBase;
+import com.example.androidrealestateproject.database.TechMasterDataBase;
 import com.example.androidrealestateproject.entity.Meet;
 
 public class ServiceMeet extends AppCompatActivity {
@@ -26,8 +26,8 @@ public class ServiceMeet extends AppCompatActivity {
         btnAddMeet.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                RightCleanerDataBase rightCleanerDataBase=RightCleanerDataBase.getRightCleanerDataBase(getApplicationContext());
-                final MeetDAO meetDAO=rightCleanerDataBase.meetDAO();
+                TechMasterDataBase techMasterDataBase = TechMasterDataBase.getRightCleanerDataBase(getApplicationContext());
+                final MeetDAO meetDAO= techMasterDataBase.meetDAO();
                 Meet meet = new Meet();
 
                 meet.setDescription(meetText.getText().toString());

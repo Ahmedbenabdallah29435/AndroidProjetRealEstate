@@ -16,7 +16,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.androidrealestateproject.R;
 import com.example.androidrealestateproject.adapters.ImageAdapter;
-import com.example.androidrealestateproject.database.RightCleanerDataBase;
+import com.example.androidrealestateproject.database.TechMasterDataBase;
 import com.example.androidrealestateproject.entity.Property;
 import com.google.gson.Gson;
 
@@ -26,7 +26,7 @@ import java.util.List;
 import gun0912.tedimagepicker.builder.TedImagePicker;
 
 public class EditPropertyActivity extends AppCompatActivity {
-    private RightCleanerDataBase appDatabase;
+    private TechMasterDataBase appDatabase;
     private EditText editTextPropertyName;
     private EditText editTextPrice;
     private EditText editTextAddress;
@@ -44,7 +44,7 @@ public class EditPropertyActivity extends AppCompatActivity {
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_edit_property);
-        appDatabase = RightCleanerDataBase.getRightCleanerDataBase(this);
+        appDatabase = TechMasterDataBase.getRightCleanerDataBase(this);
 
 
         editTextPropertyName = findViewById(R.id.editTextEditedPropertyName);

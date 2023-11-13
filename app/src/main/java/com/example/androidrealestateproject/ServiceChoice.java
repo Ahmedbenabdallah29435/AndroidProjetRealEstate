@@ -3,21 +3,17 @@ package com.example.androidrealestateproject;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
-import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 
 
 import com.example.androidrealestateproject.PropertyActivites.PropertyListActivity;
 
-import com.example.androidrealestateproject.dao.ReviewDAO;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
 import com.example.androidrealestateproject.dao.UserDAO;
-import com.example.androidrealestateproject.database.RightCleanerDataBase;
+import com.example.androidrealestateproject.database.TechMasterDataBase;
 import com.example.androidrealestateproject.helper.ServiceCategory;
 import com.example.androidrealestateproject.helper.SessionManagement;
 
@@ -25,7 +21,7 @@ public class ServiceChoice extends AppCompatActivity {
 
     Button btnHouseCleaning,btnGarden,btnElec,btnProperties;
 
-    RightCleanerDataBase rightCleanerDataBase;
+    TechMasterDataBase techMasterDataBase;
     UserDAO userDAO;
     SessionManagement sessionManagement;
     @Override
@@ -42,8 +38,8 @@ public class ServiceChoice extends AppCompatActivity {
         Toolbar toolbar=findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         sessionManagement=new SessionManagement(getApplicationContext());
-        rightCleanerDataBase= RightCleanerDataBase.getRightCleanerDataBase(getApplicationContext());
-        userDAO=rightCleanerDataBase.userDAO();
+        techMasterDataBase = TechMasterDataBase.getRightCleanerDataBase(getApplicationContext());
+        userDAO= techMasterDataBase.userDAO();
         btnElec.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

@@ -6,31 +6,26 @@ import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.ImageView;
 import android.widget.Spinner;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.androidrealestateproject.R;
 import com.example.androidrealestateproject.adapters.ImageAdapter;
-import com.example.androidrealestateproject.database.RightCleanerDataBase;
+import com.example.androidrealestateproject.database.TechMasterDataBase;
 import com.example.androidrealestateproject.entity.Property;
 import com.example.androidrealestateproject.helper.SessionManagement;
 
 
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
 
 import gun0912.tedimagepicker.builder.TedImagePicker;
-import gun0912.tedimagepicker.builder.listener.OnSelectedListener;
 
 public class AddPropertyActivity extends AppCompatActivity {
-    private RightCleanerDataBase appDatabase;
+    private TechMasterDataBase appDatabase;
     private EditText editTextPropertyName;
     private EditText editTextPrice;
     private EditText editTextAddress;
@@ -50,7 +45,7 @@ public class AddPropertyActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_property);
-        appDatabase = RightCleanerDataBase.getRightCleanerDataBase(this);
+        appDatabase = TechMasterDataBase.getRightCleanerDataBase(this);
 
         session=new SessionManagement(AddPropertyActivity.this);
 

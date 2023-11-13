@@ -11,7 +11,7 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 import com.example.androidrealestateproject.dao.UserDAO;
-import com.example.androidrealestateproject.database.RightCleanerDataBase;
+import com.example.androidrealestateproject.database.TechMasterDataBase;
 import com.example.androidrealestateproject.entity.User;
 import com.example.androidrealestateproject.helper.Role;
 import com.example.androidrealestateproject.helper.SessionManagement;
@@ -22,7 +22,7 @@ public class MainActivity extends AppCompatActivity {
     EditText username;
     EditText password;
     Button loginBtn;
-    RightCleanerDataBase rightCleanerDataBase;
+    TechMasterDataBase techMasterDataBase;
     UserDAO  userDAO;
     SessionManagement sessionManagement;
 
@@ -30,8 +30,8 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         sessionManagement=new SessionManagement(MainActivity.this);
-        rightCleanerDataBase= RightCleanerDataBase.getRightCleanerDataBase(getApplicationContext());
-        userDAO=rightCleanerDataBase.userDAO();
+        techMasterDataBase = TechMasterDataBase.getRightCleanerDataBase(getApplicationContext());
+        userDAO= techMasterDataBase.userDAO();
         super.onCreate(savedInstanceState);
 
         setContentView(R.layout.activity_main);
@@ -56,7 +56,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        rightCleanerDataBase.isOpen();
+        techMasterDataBase.isOpen();
 
         loginBtn.setOnClickListener(new View.OnClickListener() {
             @Override

@@ -11,16 +11,14 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-import androidx.room.Room;
 
 import com.example.androidrealestateproject.R;
 import com.example.androidrealestateproject.adapters.PropertyAdapter;
-import com.example.androidrealestateproject.database.RightCleanerDataBase;
+import com.example.androidrealestateproject.database.TechMasterDataBase;
 import com.example.androidrealestateproject.entity.Property;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.gson.Gson;
 
-import java.util.ArrayList;
 import java.util.List;
 
 
@@ -28,7 +26,7 @@ public class PropertyListActivity extends AppCompatActivity implements PropertyA
 
     private RecyclerView recyclerView;
     private PropertyAdapter propertyAdapter;
-    private RightCleanerDataBase appDatabase;
+    private TechMasterDataBase appDatabase;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,7 +36,7 @@ public class PropertyListActivity extends AppCompatActivity implements PropertyA
         recyclerView = findViewById(R.id.recyclerViewProperties);
         recyclerView.setLayoutManager(new GridLayoutManager(this, 1));
 
-        appDatabase = RightCleanerDataBase.getRightCleanerDataBase(this);
+        appDatabase = TechMasterDataBase.getRightCleanerDataBase(this);
 
         FloatingActionButton fabAddProperty = findViewById(R.id.fabAddProperty);
         fabAddProperty.setOnClickListener(new View.OnClickListener() {

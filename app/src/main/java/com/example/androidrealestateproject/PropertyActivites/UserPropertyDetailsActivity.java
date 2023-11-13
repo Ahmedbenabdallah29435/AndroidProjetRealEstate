@@ -16,19 +16,19 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
 import com.example.androidrealestateproject.R;
-import com.example.androidrealestateproject.database.RightCleanerDataBase;
+import com.example.androidrealestateproject.database.TechMasterDataBase;
 import com.example.androidrealestateproject.entity.Property;
 import com.google.gson.Gson;
 import com.squareup.picasso.Picasso;
 
 public class UserPropertyDetailsActivity extends AppCompatActivity {
     private static final int REQUEST_CODE_EDIT_PROPERTY = 101;
-    private RightCleanerDataBase appDatabase;
+    private TechMasterDataBase appDatabase;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.user_activity_property_details);
-        appDatabase = RightCleanerDataBase.getRightCleanerDataBase(this);
+        appDatabase = TechMasterDataBase.getRightCleanerDataBase(this);
         Toolbar toolbar = findViewById(R.id.toolbar);
         toolbar.setTitle("Property");
 

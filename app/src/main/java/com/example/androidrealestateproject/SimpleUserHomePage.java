@@ -1,6 +1,5 @@
 package com.example.androidrealestateproject;
 
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -9,15 +8,14 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
-import android.view.MenuItem;
 
 import com.example.androidrealestateproject.dao.UserDAO;
-import com.example.androidrealestateproject.database.RightCleanerDataBase;
+import com.example.androidrealestateproject.database.TechMasterDataBase;
 import com.example.androidrealestateproject.helper.SessionManagement;
 import com.example.androidrealestateproject.listServiceProviders.ServiceProviderAdapter;
 
 public class SimpleUserHomePage extends AppCompatActivity {
-    RightCleanerDataBase rightCleanerDataBase;
+    TechMasterDataBase techMasterDataBase;
     UserDAO userDAO;
     SessionManagement sessionManagement;
     RecyclerView listproviders;
@@ -25,8 +23,8 @@ public class SimpleUserHomePage extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         sessionManagement=new SessionManagement(this);
-        rightCleanerDataBase= RightCleanerDataBase.getRightCleanerDataBase(getApplicationContext());
-        userDAO=rightCleanerDataBase.userDAO();
+        techMasterDataBase = TechMasterDataBase.getRightCleanerDataBase(getApplicationContext());
+        userDAO= techMasterDataBase.userDAO();
         setContentView(R.layout.activity_simple_user_home_page);
         Toolbar toolbar=findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);

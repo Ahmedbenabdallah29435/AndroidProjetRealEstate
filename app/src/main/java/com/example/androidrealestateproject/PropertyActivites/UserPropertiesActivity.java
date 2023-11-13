@@ -2,18 +2,15 @@ package com.example.androidrealestateproject.PropertyActivites;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.Menu;
-import android.view.MenuItem;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.PopupMenu;
 import androidx.appcompat.widget.Toolbar;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.androidrealestateproject.R;
 import com.example.androidrealestateproject.adapters.PropertyAdapter;
-import com.example.androidrealestateproject.database.RightCleanerDataBase;
+import com.example.androidrealestateproject.database.TechMasterDataBase;
 import com.example.androidrealestateproject.entity.Property;
 import com.example.androidrealestateproject.helper.SessionManagement;
 import com.google.gson.Gson;
@@ -23,7 +20,7 @@ import java.util.List;
 
 public class UserPropertiesActivity extends AppCompatActivity implements PropertyAdapter.OnItemClickListener{
 
-    private RightCleanerDataBase appDatabase;
+    private TechMasterDataBase appDatabase;
     private SessionManagement session;
 
     @Override
@@ -31,7 +28,7 @@ public class UserPropertiesActivity extends AppCompatActivity implements Propert
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_user_properties);
 
-        appDatabase = RightCleanerDataBase.getRightCleanerDataBase(this);
+        appDatabase = TechMasterDataBase.getRightCleanerDataBase(this);
         session = new SessionManagement(this);
 
         Toolbar toolbar = findViewById(R.id.toolbar);
