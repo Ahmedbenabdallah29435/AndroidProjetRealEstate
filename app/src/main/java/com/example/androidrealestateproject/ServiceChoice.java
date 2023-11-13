@@ -25,8 +25,6 @@ public class ServiceChoice extends AppCompatActivity {
 
     Button btnHouseCleaning,btnGarden,btnElec,btnProperties;
 
-    Button btnHouseCleaning,btnGarden,btnElec;
-
     RightCleanerDataBase rightCleanerDataBase;
     UserDAO userDAO;
     SessionManagement sessionManagement;

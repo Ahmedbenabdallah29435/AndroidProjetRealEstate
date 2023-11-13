@@ -33,9 +33,9 @@ import com.example.androidrealestateproject.entity.UserServiceProvider;
 
 
 
-@Database(entities = {User.class, UserServiceProvider.class, Review.class, Meet.class, Property.class},version = 3, exportSchema = false)
+
 @TypeConverters({ImageListConverter.class})
-@Database(entities = {User.class, UserServiceProvider.class, Review.class, Meet.class},version = 2, exportSchema = false)
+@Database(entities = {User.class, UserServiceProvider.class, Review.class, Meet.class, Property.class},version = 3, exportSchema = false)
 
 
 public abstract class RightCleanerDataBase extends RoomDatabase {
