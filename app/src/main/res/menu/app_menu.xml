@@ -6,10 +6,7 @@
     <item android:id="@+id/profileP"
         android:title="Profile"
         />
-    <item
-        android:id="@+id/meeting"
-        android:title="Meeting"
-        />
+
     <item android:id="@+id/logOut"
         android:title="Log Out"
         />

@@ -116,6 +116,18 @@
             android:name=".AddPost"
             android:label="Nom de l'Activité (si désiré)">
         </activity>
+        <activity
+            android:name=".ListPlan"
+            android:label="Nom de l'Activité (si désiré)">
+        </activity>
+        <activity
+            android:name=".AddPlan"
+            android:label="Nom de l'Activité (si désiré)">
+        </activity>
+        <activity
+            android:name=".UpdatePlan"
+            android:label="Nom de l'Activité (si désiré)">
+        </activity>
     </application>
 
 </manifest>

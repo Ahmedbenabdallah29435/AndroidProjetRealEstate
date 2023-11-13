@@ -45,7 +45,7 @@ public class ServiceChoice extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-        btnHouseCleaning.setOnClickListener(new View.OnClickListener() {
+        btnGarden.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 sessionManagement.setServiceChoiceSession(ServiceCategory.RENTAL.toString());
@@ -53,11 +53,11 @@ public class ServiceChoice extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-        btnGarden.setOnClickListener(new View.OnClickListener() {
+        btnHouseCleaning.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 sessionManagement.setServiceChoiceSession(ServiceCategory.CONSTRUCTOR.toString());
-                Intent intent = new Intent(ServiceChoice.this, ServiceChoice.class);
+                Intent intent = new Intent(ServiceChoice.this, ListPlan.class);
                 startActivity(intent);
             }
         });

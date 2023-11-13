@@ -18,7 +18,8 @@ public interface PostDao {
 
     @Query("SELECT EXISTS(SELECT * FROM Post WHERE postid = :postId)")
     Boolean is_exist(int postId);
-
+    @Query("SELECT EXISTS(SELECT * FROM Post WHERE title = :postId)")
+    Boolean is_exist2(String postId);
 
     @Query("SELECT * FROM Post")
     List<Post> getallposts();

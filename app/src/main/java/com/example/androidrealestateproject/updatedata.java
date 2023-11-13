@@ -11,13 +11,12 @@ import androidx.room.Room;
 
 import com.example.androidrealestateproject.dao.PostDao;
 import com.example.androidrealestateproject.database.TechMasterDataBase;
-import com.example.androidrealestateproject.entity.Post;
 
 public class updatedata extends AppCompatActivity
 {
   int id;
   EditText name, content;
-  Button btn;
+  Button btn,b155;
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
@@ -27,7 +26,7 @@ public class updatedata extends AppCompatActivity
         name=findViewById(R.id.editfname);
         content=findViewById(R.id.editlname);
         btn=findViewById(R.id.btn);
-
+        b155=findViewById(R.id.b155);
         id=Integer.parseInt(getIntent().getStringExtra("uid"));
         name.setText(getIntent().getStringExtra("ufname"));
         content.setText(getIntent().getStringExtra("ulname"));
@@ -43,6 +42,12 @@ public class updatedata extends AppCompatActivity
                 postDao.updateById(id,name.getText().toString(),content.getText().toString());//
                 startActivity(new Intent(getApplicationContext(),fetchdata.class));
                 finish();
+            }
+        });
+        b155.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(getApplicationContext(), fetchdata.class));
             }
         });
     }

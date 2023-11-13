@@ -51,7 +51,7 @@ public class ServiceProviderSignUpPage extends AppCompatActivity {
                 "10 - 20", "20 - 30", "30 - 40","Other"
         };
         service=findViewById(R.id.service);
-        price=findViewById(R.id.price);
+        price=findViewById(R.id.price1);
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,
                 android.R.layout.simple_spinner_item, arraySpinner);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);

@@ -2,8 +2,11 @@ package com.example.androidrealestateproject;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.TextUtils;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.TextView;
 
@@ -17,13 +20,16 @@ import com.example.androidrealestateproject.entity.Post;
 
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
+import java.time.format.DateTimeParseException;
 
 
 public class test extends AppCompatActivity
 {
-   EditText t1,t2,t3,t4,t5,t6,t;
+   EditText t1,t4,t5;
+   CheckBox t6 , t88;
    TextView lbl;
-   Button b1,b2;
+
+   Button b1,b2,b17;
     TechMasterDataBase app;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,46 +39,65 @@ public class test extends AppCompatActivity
         setContentView(R.layout.test1);
 
         t1=findViewById(R.id.t1);
-        t2=findViewById(R.id.t2);
-        t3=findViewById(R.id.t3);
+
         t4=findViewById(R.id.t4);
         t5=findViewById(R.id.t5);
         t6=findViewById(R.id.t6);
-        t=findViewById(R.id.t);
-
+t88=findViewById(R.id.t88);
         b1=findViewById(R.id.b1);
         b2=findViewById(R.id.b2);
         lbl=findViewById(R.id.lbl);
-
+        b17=findViewById(R.id.b17);
          b1.setOnClickListener(new View.OnClickListener() {
              @Override
              public void onClick(View view) {
-                 String dateString = t5.getText().toString();
-                 DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
-                 LocalDate localDate = LocalDate.parse(dateString, formatter);
-                 // Assuming t6.getText().toString() contains a valid Category name
-                 String categoryString = t6.getText().toString();
-                 Category category = Category.valueOf(categoryString);
-                 //..
+                 // Récupérer les valeurs des champs
+                 String title = t1.getText().toString().trim();
+                 String dateString = t5.getText().toString().trim();
+                 String description = t4.getText().toString().trim();
+
+                 // Vérifier si les champs obligatoires sont vides
+                 if (TextUtils.isEmpty(title) || TextUtils.isEmpty(dateString) || TextUtils.isEmpty(description)) {
+                     // Afficher un message d'erreur ou effectuer une action appropriée
+                     lbl.setText("Veuillez remplir tous les champs obligatoires.");
+                     return;
+                 }
+
+                 // Continuer avec le reste du code si les champs obligatoires sont remplis
+
+                 // Vérifier si la date est au bon format
+                 try {
+                     DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+                     LocalDate localDate = LocalDate.parse(dateString, formatter);
+                 } catch (DateTimeParseException e) {
+                     lbl.setText("Format de date incorrect. Utilisez le format yyyy-MM-dd.");
+                     return;
+                 }
+
+                 // Vérifier si le titre existe déjà dans la base de données
                  TechMasterDataBase db = Room.databaseBuilder(getApplicationContext(),
                          TechMasterDataBase.class, "TechMaster").allowMainThreadQueries().build();
                  PostDao postDao = db.postDAO();
-                 Boolean check=postDao.is_exist(Integer.parseInt(t1.getText().toString()));
-                 if(check==false) {
-                     postDao.insertrecord(new Post(t4.getText().toString(), localDate ,category,t1.getText().toString()));
+                 Boolean check = postDao.is_exist2(title);
+                 if (!check) {
+                     // Insérer le nouveau poste dans la base de données
+                     CheckBox selectedCheckBox = t6.isChecked() ? t6 : t88;
+                     String categoryString = selectedCheckBox.getText().toString();
+                     Category category = Category.valueOf(categoryString);
+                     DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+                     LocalDate localDate = LocalDate.parse(dateString, formatter);
+                     postDao.insertrecord(new Post(title, localDate, category, description));
                      t1.setText("");
-                     t2.setText("");
-                     t3.setText("");
-                     lbl.setText("Inserted Successfully");
-                 }
-                 else
-                 {
+                     lbl.setText("Inséré avec succès");
+                 } else {
                      t1.setText("");
-                     t2.setText("");
-                     t3.setText("");
-                     lbl.setText("Record is existing");
+                     lbl.setText("L'enregistrement existe déjà");
                  }
+
+
+
              }
+
          });
 
          b2.setOnClickListener(new View.OnClickListener() {
@@ -81,6 +106,14 @@ public class test extends AppCompatActivity
                startActivity(new Intent(getApplicationContext(), fetchdata.class));
              }
          });
+
+            b17.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    startActivity(new Intent(getApplicationContext(), ServiceChoice.class));
+                }
+            });
+
 
     }
 
