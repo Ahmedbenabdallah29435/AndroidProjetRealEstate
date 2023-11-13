@@ -53,6 +53,34 @@
                 android:value="" />
         </activity>
         <activity
+            android:name=".test"
+            android:exported="false"
+            android:label="Home page"
+            >
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".updatedata"
+            android:exported="false"
+            android:label="Home page"
+            >
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".fetchdata"
+            android:exported="false"
+            android:label="Home page"
+            >
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+
+        <activity
             android:name=".ProfilePage"
             android:exported="false"
             android:label="Profile"

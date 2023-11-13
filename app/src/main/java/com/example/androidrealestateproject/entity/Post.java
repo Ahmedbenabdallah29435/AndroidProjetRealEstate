@@ -65,8 +65,8 @@ public class Post {
         this.postContent = postContent;
     }
 
-    public Post(Integer postid, String title, LocalDate postDate, Category category, String postContent) {
-        this.postid = postid;
+    public Post(String title, LocalDate postDate, Category category, String postContent) {
+
         this.title = title;
         this.postDate = postDate;
         this.category = category;

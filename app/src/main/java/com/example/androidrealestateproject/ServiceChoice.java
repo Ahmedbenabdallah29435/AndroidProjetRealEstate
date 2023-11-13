@@ -40,8 +40,8 @@ public class ServiceChoice extends AppCompatActivity {
         btnElec.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                sessionManagement.setServiceChoiceSession(ServiceCategory.CONSTRUCTOR.toString());
-                Intent intent = new Intent(ServiceChoice.this, ServiceChoice.class);
+                sessionManagement.setServiceChoiceSession(ServiceCategory.RENTAL.toString());
+                Intent intent = new Intent(ServiceChoice.this, SimpleUserHomePage2.class);
                 startActivity(intent);
             }
         });
@@ -56,7 +56,7 @@ public class ServiceChoice extends AppCompatActivity {
         btnGarden.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                sessionManagement.setServiceChoiceSession(ServiceCategory.BLOGGER.toString());
+                sessionManagement.setServiceChoiceSession(ServiceCategory.CONSTRUCTOR.toString());
                 Intent intent = new Intent(ServiceChoice.this, ServiceChoice.class);
                 startActivity(intent);
             }
@@ -65,7 +65,7 @@ public class ServiceChoice extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 sessionManagement.setServiceChoiceSession(ServiceCategory.BLOGGER.toString());
-                Intent intent = new Intent(ServiceChoice.this, SimpleUserHomePage2.class);
+                Intent intent = new Intent(ServiceChoice.this, test.class);
                 startActivity(intent);
             }
         });
