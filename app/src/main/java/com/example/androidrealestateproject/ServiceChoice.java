@@ -41,7 +41,7 @@ public class ServiceChoice extends AppCompatActivity {
 
         btnBlog=findViewById(R.id.HouseCleaningBtn1);
 
-        btnProperties=findViewById(R.id.PropertiesBtn);
+        btnElec=findViewById(R.id.ElectricianBtn);
 
 
         Toolbar toolbar=findViewById(R.id.toolbar);

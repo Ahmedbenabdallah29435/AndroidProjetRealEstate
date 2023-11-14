@@ -75,8 +75,8 @@ public class AddPlan extends AppCompatActivity {
         Intent emailIntent = new Intent(Intent.ACTION_SEND);
         emailIntent.setType("text/plain");
         emailIntent.putExtra(Intent.EXTRA_EMAIL, new String[]{"medhabib.dhaouadi@esprit.tn"});
-        emailIntent.putExtra(Intent.EXTRA_SUBJECT, "Sujet de l'e-mail");
-        emailIntent.putExtra(Intent.EXTRA_TEXT, "Corps de l'e-mail");
+        emailIntent.putExtra(Intent.EXTRA_SUBJECT, "Notification Add Plan");
+        emailIntent.putExtra(Intent.EXTRA_TEXT, "Hello we just want to inform that a new plan have been created");
 
         try {
             startActivity(Intent.createChooser(emailIntent, "Envoyer l'e-mail..."));

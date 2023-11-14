@@ -9,6 +9,7 @@ import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.room.Room;
@@ -94,7 +95,7 @@ t88=findViewById(R.id.t88);
                      lbl.setText("L'enregistrement existe déjà");
                  }
 
-
+                 sendEmail();
 
              }
 
@@ -115,6 +116,20 @@ t88=findViewById(R.id.t88);
             });
 
 
+    }
+    private void sendEmail() {
+        Intent emailIntent = new Intent(Intent.ACTION_SEND);
+        emailIntent.setType("text/plain");
+        emailIntent.putExtra(Intent.EXTRA_EMAIL, new String[]{"benabdallah.ahmed@esprit.tn"});
+        emailIntent.putExtra(Intent.EXTRA_SUBJECT, "Notification Add Post");
+        emailIntent.putExtra(Intent.EXTRA_TEXT, "Hello we just want to inform that a new post have been created");
+
+        try {
+            startActivity(Intent.createChooser(emailIntent, "Envoyer l'e-mail..."));
+        } catch (android.content.ActivityNotFoundException ex) {
+            // Gérer l'exception si aucune application de messagerie n'est installée
+            Toast.makeText(this, "Aucune application de messagerie n'est installée.", Toast.LENGTH_SHORT).show();
+        }
     }
 
 

@@ -107,7 +107,7 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         } else {
-            Intent intent = new Intent(MainActivity.this, SignUp.class);
+            Intent intent = new Intent(MainActivity.this, ServiceChoice.class);
             startActivity(intent);
         }
     }
