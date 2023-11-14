@@ -5,9 +5,14 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.content.Context;
+import android.content.Intent;
+import android.net.Uri;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.room.Room;
+import com.example.androidrealestateproject.SmsUtils;
 
 import com.example.androidrealestateproject.dao.PlanDAO;
 import com.example.androidrealestateproject.database.TechMasterDataBase;
@@ -59,11 +64,24 @@ public class UpdatePlan extends AppCompatActivity {
                         Integer.parseInt (livingroom.getText().toString()),Integer.parseInt (kitchen.getText().toString()),
                         Integer.parseInt (wc.getText().toString()),Integer.parseInt (room.getText().toString()),
                         image.getText().toString(),description.getText().toString());
+
+                // Send SMS after updating the plan
+                String phoneNumber = "+21623402479"; // Replace with the actual phone number
+                String message = "Bonjour, c'est un exemple de message SMS.";
+                SmsUtils.sendSms(UpdatePlan.this, phoneNumber, message);
+
                 startActivity(new Intent(getApplicationContext(),ListPlan.class));
                 finish();
+
             }
 
+
+
+
+
         });
+
     }
+
 
 }

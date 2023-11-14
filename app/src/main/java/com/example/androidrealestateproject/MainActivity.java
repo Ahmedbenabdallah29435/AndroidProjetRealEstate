@@ -100,7 +100,7 @@ public class MainActivity extends AppCompatActivity {
             String role = user.getRole();
 
             if (Role.SIMPLE_USER.toString().equals(role)) {
-                Intent intent = new Intent(MainActivity.this, ServiceChoice.class);
+                Intent intent = new Intent(MainActivity.this, ServiceChoice2.class);
                 startActivity(intent);
             } else if (user.getRole().equals(Role.Service_Provider.toString())) {
                 Intent intent = new Intent(MainActivity.this, ServiceChoice.class);

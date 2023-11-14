@@ -19,9 +19,11 @@ import com.example.androidrealestateproject.database.TechMasterDataBase;
 import com.example.androidrealestateproject.entity.Category;
 import com.example.androidrealestateproject.entity.Post;
 
+import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.time.format.DateTimeParseException;
+import java.util.Date;
 
 
 public class test extends AppCompatActivity
@@ -49,11 +51,13 @@ t88=findViewById(R.id.t88);
         b2=findViewById(R.id.b2);
         lbl=findViewById(R.id.lbl);
         b17=findViewById(R.id.b17);
+        t5.setText(getCurrentDate());
          b1.setOnClickListener(new View.OnClickListener() {
              @Override
              public void onClick(View view) {
                  // Récupérer les valeurs des champs
                  String title = t1.getText().toString().trim();
+
                  String dateString = t5.getText().toString().trim();
                  String description = t4.getText().toString().trim();
 
@@ -89,9 +93,11 @@ t88=findViewById(R.id.t88);
                      LocalDate localDate = LocalDate.parse(dateString, formatter);
                      postDao.insertrecord(new Post(title, localDate, category, description));
                      t1.setText("");
+                     t4.setText("");
                      lbl.setText("Inséré avec succès");
                  } else {
                      t1.setText("");
+                     t4.setText("");
                      lbl.setText("L'enregistrement existe déjà");
                  }
 
@@ -132,5 +138,9 @@ t88=findViewById(R.id.t88);
         }
     }
 
-
+    private String getCurrentDate() {
+        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd", java.util.Locale.getDefault());
+        Date date = new Date();
+        return dateFormat.format(date);
+    }
 }
