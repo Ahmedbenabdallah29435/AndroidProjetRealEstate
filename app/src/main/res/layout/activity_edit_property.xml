@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp">
+
+    <EditText
+        android:id="@+id/editTextEditedPropertyName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Property Name"
+        android:inputType="text" />
+
+
+    <EditText
+        android:id="@+id/editTextEditedPrice"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/editTextEditedPropertyName"
+        android:layout_marginTop="16dp"
+        android:hint="Price"
+        android:inputType="numberDecimal" />
+
+
+    <EditText
+        android:id="@+id/editTextEditedAddress"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/editTextEditedPrice"
+        android:layout_marginTop="16dp"
+        android:hint="Address"
+        android:inputType="text" />
+
+
+    <EditText
+        android:id="@+id/editTextEditedNumberOfRooms"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/editTextEditedAddress"
+        android:layout_marginTop="16dp"
+        android:hint="Number of Rooms"
+        android:inputType="number" />
+
+
+    <Spinner
+        android:id="@+id/spinnerEditedPropertyType"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/editTextEditedNumberOfRooms"
+        android:layout_marginTop="16dp" />
+
+    <Button
+        android:id="@+id/buttonPickImageEdit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/spinnerEditedPropertyType"
+        android:layout_marginTop="8dp"
+        android:text="Pick Image" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerViewEditSelectedImages"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/buttonPickImageEdit"
+        android:layout_marginTop="16dp"
+        android:orientation="horizontal"
+        android:visibility="gone" />
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_gravity="end"
+        android:layout_below="@+id/recyclerViewEditSelectedImages"
+        android:layout_marginTop="16dp">
+
+        <Button
+            android:id="@+id/buttonSaveEditedProperty"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Save"
+            android:layout_marginEnd="8dp"
+            android:background="@drawable/victore_button"
+            android:onClick="onEditButtonClick"/>
+
+
+        <Button
+            android:id="@+id/buttonDeleteEditedProperty"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/victore_button"
+            android:text="Cancel"
+            android:onClick="onDeleteButtonClick"/>
+    </LinearLayout>
+</RelativeLayout>
+
+

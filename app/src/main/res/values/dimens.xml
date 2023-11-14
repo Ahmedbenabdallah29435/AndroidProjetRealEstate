@@ -1,0 +1,5 @@
+<resources>
+    <dimen name="property_image_width">100dp</dimen>
+    <dimen name="property_image_height">100dp</dimen>
+    <dimen name="property_image_margin">8dp</dimen>
+</resources>

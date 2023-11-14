@@ -7,6 +7,12 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 
+
+
+import com.example.androidrealestateproject.PropertyActivites.PropertyListActivity;
+
+import com.example.androidrealestateproject.dao.ReviewDAO;
+
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
@@ -18,8 +24,10 @@ import com.example.androidrealestateproject.helper.SessionManagement;
 
 
 public class ServiceChoice extends AppCompatActivity {
+
     Button btnHouseCleaning,btnGarden,btnElec,btnBlog;
     TechMasterDataBase techMasterDataBase;
+
     UserDAO userDAO;
     SessionManagement sessionManagement;
     @Override
@@ -30,7 +38,12 @@ public class ServiceChoice extends AppCompatActivity {
         btnElec=findViewById(R.id.ElectricianBtn);
         btnHouseCleaning=findViewById(R.id.HouseCleaningBtn);
         btnGarden=findViewById(R.id.GardenerBtn);
+
         btnBlog=findViewById(R.id.HouseCleaningBtn1);
+
+        btnProperties=findViewById(R.id.PropertiesBtn);
+
+
         Toolbar toolbar=findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         sessionManagement=new SessionManagement(getApplicationContext());
@@ -40,8 +53,8 @@ public class ServiceChoice extends AppCompatActivity {
         btnElec.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                sessionManagement.setServiceChoiceSession(ServiceCategory.RENTAL.toString());
-                Intent intent = new Intent(ServiceChoice.this, SimpleUserHomePage2.class);
+                //sessionManagement.setServiceChoiceSession(ServiceCategory.RENTAL.toString());
+                Intent intent = new Intent(ServiceChoice.this, PropertyListActivity.class);
                 startActivity(intent);
             }
         });
@@ -69,6 +82,9 @@ public class ServiceChoice extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
+     
+
     }
 
     @Override

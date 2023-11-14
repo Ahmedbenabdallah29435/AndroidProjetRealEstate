@@ -3,6 +3,10 @@
     xmlns:tools="http://schemas.android.com/tools" >
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.INTERNET" />
+
+
+
 
     <uses-permission android:name="android.permission.INTERNET" />
 
@@ -115,6 +119,7 @@
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
+
         <activity
             android:name=".AddPost"
             android:label="Nom de l'Activité (si désiré)">
@@ -143,6 +148,21 @@
         <activity
             android:name=".UpdateRental"
             android:label="Nom de l'Activité (si désiré)">
+        </activity>
+
+
+        <activity android:name=".PropertyActivites.PropertyListActivity" />
+        <activity android:name=".PropertyActivites.PropertyDetailsActivity" />
+        <activity android:name=".PropertyActivites.UserPropertiesActivity" />
+        <activity android:name=".PropertyActivites.UserPropertyDetailsActivity" />
+        <activity android:name=".PropertyActivites.EditPropertyActivity" />
+        <activity
+            android:name=".PropertyActivites.AddPropertyActivity"
+            android:label="add_property_title"
+            android:parentActivityName=".PropertyActivites.PropertyListActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".PropertyActivites.PropertyListActivity" />
         </activity>
 
     </application>
